@@ -1,0 +1,68 @@
+<div style="text-align: center">
+    <h1>Trainer DNIs</h1>
+    <section id="s-dni-azul">
+        <div>
+            <h2>DNI Azul</h2>
+            <webcam #webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" [videoOptions]="videoOptions" [imageQuality]="1" (initError)="handleInitError($event)">
+            </webcam>
+            <br />
+            <!-- <button class="actionBtn" (click)="triggerSnapshot();" (blur)="stopSnapshot();">Start</button> -->
+            <mat-slide-toggle [(ngModel)]="timer" (change)="triggerSnapshot()">Start</mat-slide-toggle>
+
+            <!-- <button class="actionBtn" (click)="toggleWebcam();">Toggle Webcam</button> -->
+            <!-- <br/> -->
+            <!-- <button class="actionBtn" (click)="showNextWebcam(true);" [disabled]="!multipleWebcamsAvailable">Next Webcam</button> -->
+            <!-- <input id="cameraSwitchCheckbox" type="checkbox" (ngModel)="allowCameraSwitch"> -->
+            <!-- <label for="cameraSwitchCheckbox">Allow Camera Switch</label> -->
+            <!-- <br/> DeviceId: <input id="deviceId" type="text" (ngModel)="deviceId" style="width: 500px">
+        <button (click)="showNextWebcam(deviceId);">Activate</button> -->
+        </div>
+
+        <div class="snapshot" *ngIf="webcamImages?.length">
+            <h2>Nice one! counter images: {{ webcamImages.length }}</h2>
+            <div style="display: flex; overflow-x: auto">
+                <div *ngFor="let item of webcamImages; let i = index">
+                    <img [src]="item.imageAsDataUrl" width="100" height="75" />
+                </div>
+            </div>
+        </div>
+
+        <h4 *ngIf="errors.length > 0">Messages:</h4>
+        <ul *ngFor="let error of errors">
+            <li>{{ error | json }}</li>
+        </ul>
+    </section>
+
+    <section id="s-dni-elec-20">
+        <div>
+            <h2>DNI Electronico 2020</h2>
+            <webcam #webcam [height]="500" [width]="500" [trigger]="triggerObservable2" (imageCapture)="handleImage2($event)" *ngIf="showWebcam2" [imageQuality]="1" (initError)="handleInitError($event)">
+            </webcam>
+            <br />
+            <!-- <button class="actionBtn" (click)="triggerSnapshot();" (blur)="stopSnapshot();">Start</button> -->
+            <mat-slide-toggle [(ngModel)]="timer2" (change)="triggerSnapshot2()">Start</mat-slide-toggle>
+
+            <!-- <button class="actionBtn" (click)="toggleWebcam();">Toggle Webcam</button> -->
+            <!-- <br/> -->
+            <!-- <button class="actionBtn" (click)="showNextWebcam(true);" [disabled]="!multipleWebcamsAvailable">Next Webcam</button> -->
+            <!-- <input id="cameraSwitchCheckbox" type="checkbox" (ngModel)="allowCameraSwitch"> -->
+            <!-- <label for="cameraSwitchCheckbox">Allow Camera Switch</label> -->
+            <!-- <br/> DeviceId: <input id="deviceId" type="text" (ngModel)="deviceId" style="width: 500px">
+        <button (click)="showNextWebcam(deviceId);">Activate</button> -->
+        </div>
+
+        <div class="snapshot" *ngIf="webcamImages2?.length">
+            <h2>Nice one! counter images: {{ webcamImages2.length }}</h2>
+            <div style="display: flex; overflow-x: auto">
+                <div *ngFor="let item of webcamImages2; let i = index">
+                    <img [src]="item.imageAsDataUrl" width="100" height="75" />
+                </div>
+            </div>
+        </div>
+
+        <h4 *ngIf="errors.length > 0">Messages:</h4>
+        <ul *ngFor="let error of errors">
+            <li>{{ error | json }}</li>
+        </ul>
+    </section>
+</div>

@@ -12,11 +12,13 @@ import { WebcamModule } from 'ngx-webcam';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TrainerImgDniComponent } from './components/trainer-img-dni/trainer-img-dni.component';
+import { DataComponent } from './components/trainer-img-dni/data/data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TrainerImgDniComponent
+    TrainerImgDniComponent,
+    DataComponent
   ],
   imports: [
     BrowserModule,
